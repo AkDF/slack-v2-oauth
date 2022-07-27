@@ -3,12 +3,10 @@
 ### Install the package
 
 ```sh
-composer require mpociot/socialite-slack
+composer require mkarpov/slack-v2
 ```
 
 ### Install the Service Provider
-
-* Remove `Laravel\Socialite\SocialiteServiceProvider` from your providers[] array in config\app.php if you have added it already.
 
 * Add `\Socialite\SlackV2\Providers\SocialiteServiceProvider::class` to your providers[] array in config\app.php.
 
