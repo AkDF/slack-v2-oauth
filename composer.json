@@ -1,19 +1,28 @@
 {
-    "name": "mkarpov/slack-v2",
-    "authors": [
-        {
-            "name": "Michael Karpov",
-            "email": "mkarpov@smartdatatech.io"
-        }
-    ],
-    "require": {
-        "laravel/socialite": "v4.4.1",
-        "ext-json": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Socialite\\SlackV2\\": "src/"
-        }
-    },
-    "minimum-stability": "dev"
+  "name": "mkarpov/slack-v2",
+  "authors": [
+    {
+      "name": "Michael Karpov",
+      "email": "mkarpov@smartdatatech.io"
+    }
+  ],
+  "description": "Socialite provider for slack oauth v2",
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*",
+    "laravel/socialite": "~4.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "oauth",
+    "laravel",
+    "Socialite",
+    "v2"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Socialite\\SlackV2\\": "src/"
+    }
+  },
+  "minimum-stability": "stable"
 }
