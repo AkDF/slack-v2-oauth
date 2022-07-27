@@ -8,7 +8,7 @@ class Socialite extends SocialiteManager
 {
     public function createSlackDriver()
     {
-        $config = $this->container['config']['services.slack_v2'];
+        $config = $this->app['config']['services.slack'];
 
         return $this->buildProvider(SlackProvider::class, $config);
     }
