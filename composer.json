@@ -14,5 +14,6 @@
         "psr-4": {
             "Socialite\\SlackV2\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "stable"
 }
