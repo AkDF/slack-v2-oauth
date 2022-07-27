@@ -15,5 +15,5 @@
             "Socialite\\SlackV2\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
