@@ -1,0 +1,18 @@
+{
+    "name": "mkarpov/slack-v2",
+    "authors": [
+        {
+            "name": "Michael Karpov",
+            "email": "mkarpov@smartdatatech.io"
+        }
+    ],
+    "require": {
+        "laravel/socialite": "v4.4.1",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Socialite\\SlackV2\\": "src/"
+        }
+    }
+}

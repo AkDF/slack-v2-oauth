@@ -1,0 +1,1 @@
+#Socialite provider for slack oauth v2
