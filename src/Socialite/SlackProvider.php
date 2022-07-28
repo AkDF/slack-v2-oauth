@@ -3,7 +3,6 @@ namespace Socialite\SlackV2\Socialite;
 
 use Illuminate\Support\Arr;
 use Laravel\Socialite\Two\InvalidStateException;
-use Laravel\Socialite\Two\User;
 use Laravel\Socialite\Two\AbstractProvider;
 use Laravel\Socialite\Two\ProviderInterface;
 
@@ -126,16 +125,22 @@ class SlackProvider extends AbstractProvider implements ProviderInterface
         if ($this->hasInvalidState()) {
             throw new InvalidStateException();
         }
-
         $response = $this->getAccessTokenResponse($this->getCode());
-
         $userToken = $this->getUserToken($response);
+        $userData = $this->getUserByToken($userToken);
+        $user = $this->mapUserToObject($userData);
 
-        $user = $this->mapUserToObject($this->getUserByToken($userToken));
+        $user->setToken($userToken)
+            ->setBotToken($this->getBotToken($response));
+        return $user;
+    }
 
-        return $user->setToken($userToken)
-            ->setRefreshToken(Arr::get($response, 'refresh_token'))
-            ->setExpiresIn(Arr::get($response, 'expires_in'));
+    /**
+     * get bot token from auth response
+     */
+    public function getBotToken($response)
+    {
+        return Arr::get($response, 'access_token');
     }
 
     /**
@@ -155,7 +160,7 @@ class SlackProvider extends AbstractProvider implements ProviderInterface
      */
     protected function mapUserToObject(array $user)
     {
-        return (new User)->setRaw($user)->map(
+        return (new \Socialite\SlackV2\Socialite\User())->setRaw($user)->map(
             [
                 'id' => Arr::get($user, 'user.id'),
                 'name' => Arr::get($user, 'user.name'),
