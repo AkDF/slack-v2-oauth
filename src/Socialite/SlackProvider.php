@@ -23,6 +23,7 @@ class SlackProvider extends AbstractProvider implements ProviderInterface
             'form_params' => $this->getTokenFields($code),
         ]);
 
+        
         return json_decode($response->getBody(), true)['access_token'];
     }
 
