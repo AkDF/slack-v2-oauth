@@ -38,7 +38,7 @@ class SlackProvider extends AbstractProvider implements ProviderInterface
      *
      */
     protected $userScopes = [
-        'identity.basic',
+        'openid',
     ];
 
     /**
@@ -130,9 +130,14 @@ class SlackProvider extends AbstractProvider implements ProviderInterface
         $userToken = $this->getUserToken($response);
         $userData = $this->getUserByToken($userToken);
         $user = $this->mapUserToObject($userData);
+        $botToken = $this->getBotToken($response);
+
+        if(!$botToken){
+           throw new \Exception('Something wrong, please try later.');
+        }
 
         $user->setToken($userToken)
-            ->setBotToken($this->getBotToken($response));
+            ->setBotToken($botToken);
         return $user;
     }
 

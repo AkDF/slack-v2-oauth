@@ -6,12 +6,12 @@
       "email": "mkarpov@smartdatatech.io"
     }
   ],
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "Socialite provider for slack oauth v2",
   "require": {
     "php": ">=7.4",
     "ext-json": "*",
-    "laravel/socialite": "~4.0"
+    "laravel/socialite": "^5.0"
   },
   "license": "MIT",
   "keywords": [
