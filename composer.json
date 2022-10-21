@@ -6,7 +6,7 @@
       "email": "mkarpov@smartdatatech.io"
     }
   ],
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Socialite provider for slack oauth v2",
   "require": {
     "php": ">=7.4",
